@@ -25,6 +25,16 @@ def bubble_sort2(arr):
         if not isChange:
             break
 
+def insert_sort(arr):
+    for sort_border in range(1, len(arr)):
+        curr_index = sort_border - 1
+        value = arr[curr_index+1]
+
+        while arr[curr_index] > value and curr_index >= 0:
+            arr[curr_index+1] = arr[curr_index]
+            curr_index = curr_index - 1
+
+        arr[curr_index + 1] = value
 
 max_limit = 1000
 listofnumbers = [random.randint(0, max_limit) for _ in range(max_limit)]
@@ -42,6 +52,6 @@ end = time.time()
 print(f"Bubble sort2 time: {end - start}")
 
 start = time.time()
-listofnumbers3.sort()
+insert_sort(listofnumbers3)
 end = time.time()
-print(f"Python sort time: {end - start}")
+print(f"insert sort time: {end - start}")
